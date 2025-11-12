@@ -1,0 +1,6 @@
+{
+  "max_sequence_length": 8,
+  "cc2_min": 4.8,
+  "cc2_max": 7.8,
+  "sleep_voltage": 12.0
+}
