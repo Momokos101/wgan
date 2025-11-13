@@ -1,5 +1,10 @@
 # Python
 __pycache__/
+sequence/__pycache__
+nn/__pycache__
+configs/__pycache__
+env/
+venv/
 *.py[cod]
 *$py.class
 *.so
