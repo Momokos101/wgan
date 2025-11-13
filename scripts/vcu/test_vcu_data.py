@@ -64,7 +64,7 @@ def test_data_processor():
     print("测试数据处理器")
     print("=" * 60)
     
-    db_path = 'db.db'
+    db_path = DB_PATH
     processor = VcuDataProcessor(db_path, batch_size=32)
     
     # 测试归一化

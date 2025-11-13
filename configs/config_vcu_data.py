@@ -7,7 +7,16 @@ VCU 数据相关配置
 from .config_vcu_base import *
 
 # 数据库配置
+# 支持单个数据库路径（向后兼容）
 DB_PATH = 'database/db.db'  # 数据库文件路径（相对于项目根目录）
+
+# 支持多个数据库路径（列表形式）
+# 如果设置了 DB_PATHS，将优先使用 DB_PATHS，忽略 DB_PATH
+DB_PATHS = [
+    'database/db_10.db',
+    'database/db_11.db',
+    'database/db_15.db'
+]
 
 # 异常检测阈值
 VEHICLE_STATUS_MIN = 30  # 整车状态极小值，此时 READY 标志位应该为 0

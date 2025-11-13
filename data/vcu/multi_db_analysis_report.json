@@ -1,0 +1,290 @@
+{
+  "summary": {
+    "total_databases": 3,
+    "total_records": 3498,
+    "total_valid": 3498,
+    "total_abnormal": 30,
+    "total_normal": 3468,
+    "overall_abnormal_rate": 0.008576329331046312
+  },
+  "databases": [
+    {
+      "db_name": "db_10.db",
+      "db_path": "database/db_10.db",
+      "total_records": 1010,
+      "valid_records": 1010,
+      "abnormal_count": 21,
+      "normal_count": 989,
+      "abnormal_rate": 0.020792079207920793,
+      "voltage_stats": {
+        "min": 4.8999999999999995,
+        "max": 12.0,
+        "mean": 9.170891089108911,
+        "std": 2.8758682198322973
+      },
+      "sequence_count": 1,
+      "anomaly_types": {
+        "ready_flag_mismatch+state_follow_mismatch": 5,
+        "state_follow_mismatch": 16
+      },
+      "anomaly_details": [
+        {
+          "run_id": 360,
+          "round_id": 1,
+          "cc2_voltage": 12.0,
+          "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+          "output_fields": {
+            "动力防盗允许READY标志位": 1,
+            "整车状态": 30,
+            "CC2电压值": 12.0
+          }
+        },
+        {
+          "run_id": 700,
+          "round_id": 1,
+          "cc2_voltage": 12.0,
+          "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+          "output_fields": {
+            "动力防盗允许READY标志位": 1,
+            "整车状态": 30,
+            "CC2电压值": 12.0
+          }
+        },
+        {
+          "run_id": 788,
+          "round_id": 1,
+          "cc2_voltage": 12.0,
+          "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+          "output_fields": {
+            "动力防盗允许READY标志位": 1,
+            "整车状态": 30,
+            "CC2电压值": 12.0
+          }
+        },
+        {
+          "run_id": 859,
+          "round_id": 1,
+          "cc2_voltage": 5.6,
+          "anomaly_type": "state_follow_mismatch",
+          "output_fields": {
+            "动力防盗允许READY标志位": 1,
+            "整车状态": 180,
+            "CC2电压值": 7.1000000000000005
+          }
+        },
+        {
+          "run_id": 860,
+          "round_id": 1,
+          "cc2_voltage": 12.0,
+          "anomaly_type": "state_follow_mismatch",
+          "output_fields": {
+            "动力防盗允许READY标志位": 1,
+            "整车状态": 170,
+            "CC2电压值": 6.1000000000000005
+          }
+        },
+        {
+          "run_id": 866,
+          "round_id": 1,
+          "cc2_voltage": 12.0,
+          "anomaly_type": "state_follow_mismatch",
+          "output_fields": {
+            "动力防盗允许READY标志位": 1,
+            "整车状态": 186,
+            "CC2电压值": 12.0
+          }
+        },
+        {
+          "run_id": 879,
+          "round_id": 1,
+          "cc2_voltage": 6.3,
+          "anomaly_type": "state_follow_mismatch",
+          "output_fields": {
+            "动力防盗允许READY标志位": 1,
+            "整车状态": 186,
+            "CC2电压值": 11.9
+          }
+        },
+        {
+          "run_id": 880,
+          "round_id": 1,
+          "cc2_voltage": 12.0,
+          "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+          "output_fields": {
+            "动力防盗允许READY标志位": 0,
+            "整车状态": 170,
+            "CC2电压值": 12.0
+          }
+        },
+        {
+          "run_id": 881,
+          "round_id": 1,
+          "cc2_voltage": 6.0,
+          "anomaly_type": "state_follow_mismatch",
+          "output_fields": {
+            "动力防盗允许READY标志位": 1,
+            "整车状态": 12,
+            "CC2电压值": 12.0
+          }
+        },
+        {
+          "run_id": 893,
+          "round_id": 1,
+          "cc2_voltage": 8.0,
+          "anomaly_type": "state_follow_mismatch",
+          "output_fields": {
+            "动力防盗允许READY标志位": 1,
+            "整车状态": 180,
+            "CC2电压值": 5.4
+          }
+        }
+      ]
+    },
+    {
+      "db_name": "db_11.db",
+      "db_path": "database/db_11.db",
+      "total_records": 1000,
+      "valid_records": 1000,
+      "abnormal_count": 3,
+      "normal_count": 997,
+      "abnormal_rate": 0.003,
+      "voltage_stats": {
+        "min": 4.8999999999999995,
+        "max": 12.0,
+        "mean": 9.1532,
+        "std": 2.9072787551247994
+      },
+      "sequence_count": 1,
+      "anomaly_types": {
+        "ready_flag_mismatch+state_follow_mismatch": 3
+      },
+      "anomaly_details": [
+        {
+          "run_id": 88,
+          "round_id": 1,
+          "cc2_voltage": 12.0,
+          "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+          "output_fields": {
+            "动力防盗允许READY标志位": 1,
+            "整车状态": 30,
+            "CC2电压值": 12.0
+          }
+        },
+        {
+          "run_id": 624,
+          "round_id": 1,
+          "cc2_voltage": 12.0,
+          "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+          "output_fields": {
+            "动力防盗允许READY标志位": 1,
+            "整车状态": 30,
+            "CC2电压值": 12.0
+          }
+        },
+        {
+          "run_id": 846,
+          "round_id": 1,
+          "cc2_voltage": 12.0,
+          "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+          "output_fields": {
+            "动力防盗允许READY标志位": 1,
+            "整车状态": 30,
+            "CC2电压值": 12.0
+          }
+        }
+      ]
+    },
+    {
+      "db_name": "db_15.db",
+      "db_path": "database/db_15.db",
+      "total_records": 1488,
+      "valid_records": 1488,
+      "abnormal_count": 6,
+      "normal_count": 1482,
+      "abnormal_rate": 0.004032258064516129,
+      "voltage_stats": {
+        "min": 4.8999999999999995,
+        "max": 12.0,
+        "mean": 8.699395161290322,
+        "std": 2.463143570130122
+      },
+      "sequence_count": 1,
+      "anomaly_types": {
+        "state_follow_mismatch": 3,
+        "ready_flag_mismatch+state_follow_mismatch": 3
+      },
+      "anomaly_details": [
+        {
+          "run_id": 59,
+          "round_id": 1,
+          "cc2_voltage": 7.8,
+          "anomaly_type": "state_follow_mismatch",
+          "output_fields": {
+            "动力防盗允许READY标志位": 0,
+            "整车状态": 30,
+            "CC2电压值": 7.6000000000000005
+          }
+        },
+        {
+          "run_id": 386,
+          "round_id": 1,
+          "cc2_voltage": 12.0,
+          "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+          "output_fields": {
+            "动力防盗允许READY标志位": 1,
+            "整车状态": 30,
+            "CC2电压值": 12.0
+          }
+        },
+        {
+          "run_id": 445,
+          "round_id": 1,
+          "cc2_voltage": 7.8,
+          "anomaly_type": "state_follow_mismatch",
+          "output_fields": {
+            "动力防盗允许READY标志位": 0,
+            "整车状态": 30,
+            "CC2电压值": 7.6000000000000005
+          }
+        },
+        {
+          "run_id": 598,
+          "round_id": 1,
+          "cc2_voltage": 12.0,
+          "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+          "output_fields": {
+            "动力防盗允许READY标志位": 1,
+            "整车状态": 30,
+            "CC2电压值": 12.0
+          }
+        },
+        {
+          "run_id": 830,
+          "round_id": 1,
+          "cc2_voltage": 12.0,
+          "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+          "output_fields": {
+            "动力防盗允许READY标志位": 1,
+            "整车状态": 30,
+            "CC2电压值": 12.0
+          }
+        },
+        {
+          "run_id": 853,
+          "round_id": 1,
+          "cc2_voltage": 7.8,
+          "anomaly_type": "state_follow_mismatch",
+          "output_fields": {
+            "动力防盗允许READY标志位": 1,
+            "整车状态": 170,
+            "CC2电压值": 7.6000000000000005
+          }
+        }
+      ]
+    }
+  ],
+  "anomaly_type_summary": {
+    "ready_flag_mismatch+state_follow_mismatch": 11,
+    "state_follow_mismatch": 19
+  }
+}

@@ -1,0 +1,1590 @@
+{
+  "summary": {
+    "total_anomalies": 30,
+    "anomaly_types": {
+      "ready_flag_mismatch+state_follow_mismatch": 11,
+      "state_follow_mismatch": 19
+    },
+    "context_before": 4,
+    "context_after": 4
+  },
+  "anomalies": [
+    {
+      "db_name": "db_10.db",
+      "db_index": 1,
+      "sequence_index": 0,
+      "run_id": 360,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 359,
+      "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+      "anomaly_voltage": 12.0,
+      "output_fields": {
+        "动力防盗允许READY标志位": 1,
+        "整车状态": 30,
+        "CC2电压值": 12.0
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [
+          "整车状态=30(接近极小值30)，但READY标志位=1(应为0)"
+        ],
+        "state_follow_mismatch": [
+          "整车状态=30处于极小值(<= 30)时，动力防盗允许READY标志位=1(应为0)"
+        ]
+      },
+      "context_voltage_sequence": [
+        7.8,
+        6.1,
+        6.5,
+        6.5,
+        12.0,
+        5.0,
+        5.1,
+        6.4,
+        7.4
+      ],
+      "context_voltage_stats": {
+        "mean": 6.977777777777778,
+        "std": 1.97415398351225,
+        "min": 5.0,
+        "max": 12.0,
+        "range": 7.0,
+        "median": 6.5,
+        "count": 9,
+        "wake_count": 8,
+        "sleep_count": 1,
+        "high_voltage_count": 2,
+        "low_voltage_count": 2
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_10.db",
+      "db_index": 1,
+      "sequence_index": 0,
+      "run_id": 700,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 699,
+      "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+      "anomaly_voltage": 12.0,
+      "output_fields": {
+        "动力防盗允许READY标志位": 1,
+        "整车状态": 30,
+        "CC2电压值": 12.0
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [
+          "整车状态=30(接近极小值30)，但READY标志位=1(应为0)"
+        ],
+        "state_follow_mismatch": [
+          "整车状态=30处于极小值(<= 30)时，动力防盗允许READY标志位=1(应为0)"
+        ]
+      },
+      "context_voltage_sequence": [
+        6.1,
+        7.7,
+        6.8,
+        5.7,
+        12.0,
+        7.4,
+        7.8,
+        5.5,
+        5.9
+      ],
+      "context_voltage_stats": {
+        "mean": 7.211111111111112,
+        "std": 1.8823415940108241,
+        "min": 5.5,
+        "max": 12.0,
+        "range": 6.5,
+        "median": 6.8,
+        "count": 9,
+        "wake_count": 8,
+        "sleep_count": 1,
+        "high_voltage_count": 3,
+        "low_voltage_count": 1
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_10.db",
+      "db_index": 1,
+      "sequence_index": 0,
+      "run_id": 788,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 787,
+      "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+      "anomaly_voltage": 12.0,
+      "output_fields": {
+        "动力防盗允许READY标志位": 1,
+        "整车状态": 30,
+        "CC2电压值": 12.0
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [
+          "整车状态=30(接近极小值30)，但READY标志位=1(应为0)"
+        ],
+        "state_follow_mismatch": [
+          "整车状态=30处于极小值(<= 30)时，动力防盗允许READY标志位=1(应为0)"
+        ]
+      },
+      "context_voltage_sequence": [
+        5.8,
+        6.7,
+        5.2,
+        7.0,
+        12.0,
+        6.2,
+        4.8999999999999995,
+        6.2,
+        7.7
+      ],
+      "context_voltage_stats": {
+        "mean": 6.855555555555556,
+        "std": 1.9933841192589,
+        "min": 4.8999999999999995,
+        "max": 12.0,
+        "range": 7.1000000000000005,
+        "median": 6.2,
+        "count": 9,
+        "wake_count": 8,
+        "sleep_count": 1,
+        "high_voltage_count": 2,
+        "low_voltage_count": 2
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_10.db",
+      "db_index": 1,
+      "sequence_index": 0,
+      "run_id": 859,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 858,
+      "anomaly_type": "state_follow_mismatch",
+      "anomaly_voltage": 5.6,
+      "output_fields": {
+        "动力防盗允许READY标志位": 1,
+        "整车状态": 180,
+        "CC2电压值": 7.1000000000000005
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [],
+        "state_follow_mismatch": [
+          "整车状态=180处于极大值(>= 170)时，充放电枪连接指示灯=0(应为1)",
+          "整车状态=180处于极大值(>= 170)时，快充唤醒信号=0(应为1)",
+          "整车状态=180处于极大值(>= 170)时，直流充电枪连接状态=1(应为2)"
+        ]
+      },
+      "context_voltage_sequence": [
+        5.1,
+        5.7,
+        5.4,
+        6.0,
+        5.6,
+        6.2,
+        5.5,
+        5.0,
+        6.4
+      ],
+      "context_voltage_stats": {
+        "mean": 5.655555555555555,
+        "std": 0.447489568124495,
+        "min": 5.0,
+        "max": 6.4,
+        "range": 1.4000000000000004,
+        "median": 5.6,
+        "count": 9,
+        "wake_count": 9,
+        "sleep_count": 0,
+        "high_voltage_count": 0,
+        "low_voltage_count": 4
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_10.db",
+      "db_index": 1,
+      "sequence_index": 0,
+      "run_id": 860,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 859,
+      "anomaly_type": "state_follow_mismatch",
+      "anomaly_voltage": 12.0,
+      "output_fields": {
+        "动力防盗允许READY标志位": 1,
+        "整车状态": 170,
+        "CC2电压值": 6.1000000000000005
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [],
+        "state_follow_mismatch": [
+          "整车状态=170处于极大值(>= 170)时，直流充电枪连接状态=1(应为2)"
+        ]
+      },
+      "context_voltage_sequence": [
+        5.7,
+        5.4,
+        6.0,
+        5.6,
+        12.0,
+        6.2,
+        5.5,
+        5.0,
+        6.4
+      ],
+      "context_voltage_stats": {
+        "mean": 6.4222222222222225,
+        "std": 2.0126145393369836,
+        "min": 5.0,
+        "max": 12.0,
+        "range": 7.0,
+        "median": 5.7,
+        "count": 9,
+        "wake_count": 8,
+        "sleep_count": 1,
+        "high_voltage_count": 1,
+        "low_voltage_count": 3
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_10.db",
+      "db_index": 1,
+      "sequence_index": 0,
+      "run_id": 866,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 865,
+      "anomaly_type": "state_follow_mismatch",
+      "anomaly_voltage": 12.0,
+      "output_fields": {
+        "动力防盗允许READY标志位": 1,
+        "整车状态": 186,
+        "CC2电压值": 12.0
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [],
+        "state_follow_mismatch": [
+          "整车状态=186处于极大值(>= 170)时，充放电枪连接指示灯=0(应为1)",
+          "整车状态=186处于极大值(>= 170)时，快充唤醒信号=0(应为1)",
+          "整车状态=186处于极大值(>= 170)时，直流充电枪连接状态=1(应为2)",
+          "整车状态=186处于极大值(>= 170)时，PDCU输出快充唤醒信号状态=1(应为2)"
+        ]
+      },
+      "context_voltage_sequence": [
+        5.6,
+        6.2,
+        5.5,
+        5.0,
+        12.0,
+        6.4,
+        6.4,
+        5.1,
+        7.0
+      ],
+      "context_voltage_stats": {
+        "mean": 6.577777777777778,
+        "std": 2.015924258816276,
+        "min": 5.0,
+        "max": 12.0,
+        "range": 7.0,
+        "median": 6.2,
+        "count": 9,
+        "wake_count": 8,
+        "sleep_count": 1,
+        "high_voltage_count": 1,
+        "low_voltage_count": 3
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_10.db",
+      "db_index": 1,
+      "sequence_index": 0,
+      "run_id": 879,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 878,
+      "anomaly_type": "state_follow_mismatch",
+      "anomaly_voltage": 6.3,
+      "output_fields": {
+        "动力防盗允许READY标志位": 1,
+        "整车状态": 186,
+        "CC2电压值": 11.9
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [],
+        "state_follow_mismatch": [
+          "整车状态=186处于极大值(>= 170)时，充放电枪连接指示灯=0(应为1)",
+          "整车状态=186处于极大值(>= 170)时，快充唤醒信号=0(应为1)",
+          "整车状态=186处于极大值(>= 170)时，直流充电枪连接状态=1(应为2)",
+          "整车状态=186处于极大值(>= 170)时，PDCU输出快充唤醒信号状态=1(应为2)"
+        ]
+      },
+      "context_voltage_sequence": [
+        5.1,
+        7.0,
+        5.0,
+        6.3,
+        6.3,
+        6.0,
+        5.3,
+        7.7,
+        6.7
+      ],
+      "context_voltage_stats": {
+        "mean": 6.155555555555556,
+        "std": 0.8590836346701204,
+        "min": 5.0,
+        "max": 7.7,
+        "range": 2.7,
+        "median": 6.3,
+        "count": 9,
+        "wake_count": 9,
+        "sleep_count": 0,
+        "high_voltage_count": 1,
+        "low_voltage_count": 3
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_10.db",
+      "db_index": 1,
+      "sequence_index": 0,
+      "run_id": 880,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 879,
+      "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+      "anomaly_voltage": 12.0,
+      "output_fields": {
+        "动力防盗允许READY标志位": 0,
+        "整车状态": 170,
+        "CC2电压值": 12.0
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [
+          "整车状态=170(接近极大值170)，但READY标志位=0(应为1)"
+        ],
+        "state_follow_mismatch": [
+          "整车状态=170处于极大值(>= 170)时，动力防盗允许READY标志位=0(应为1)",
+          "整车状态=170处于极大值(>= 170)时，PDCU输出快充唤醒信号状态=1(应为2)"
+        ]
+      },
+      "context_voltage_sequence": [
+        7.0,
+        5.0,
+        6.3,
+        6.3,
+        12.0,
+        6.0,
+        5.3,
+        7.7,
+        6.7
+      ],
+      "context_voltage_stats": {
+        "mean": 6.9222222222222225,
+        "std": 1.9549241404877398,
+        "min": 5.0,
+        "max": 12.0,
+        "range": 7.0,
+        "median": 6.3,
+        "count": 9,
+        "wake_count": 8,
+        "sleep_count": 1,
+        "high_voltage_count": 2,
+        "low_voltage_count": 2
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_10.db",
+      "db_index": 1,
+      "sequence_index": 0,
+      "run_id": 881,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 880,
+      "anomaly_type": "state_follow_mismatch",
+      "anomaly_voltage": 6.0,
+      "output_fields": {
+        "动力防盗允许READY标志位": 1,
+        "整车状态": 12,
+        "CC2电压值": 12.0
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [],
+        "state_follow_mismatch": [
+          "整车状态=12处于极小值(<= 30)时，动力防盗允许READY标志位=1(应为0)",
+          "整车状态=12处于极小值(<= 30)时，整车禁止READY标志位=1(应为0)",
+          "整车状态=12处于极小值(<= 30)时，直流充电枪连接状态=2(应为1)"
+        ]
+      },
+      "context_voltage_sequence": [
+        7.0,
+        5.0,
+        6.3,
+        6.3,
+        6.0,
+        5.3,
+        7.7,
+        6.7,
+        5.5
+      ],
+      "context_voltage_stats": {
+        "mean": 6.2,
+        "std": 0.8124038404635961,
+        "min": 5.0,
+        "max": 7.7,
+        "range": 2.7,
+        "median": 6.3,
+        "count": 9,
+        "wake_count": 9,
+        "sleep_count": 0,
+        "high_voltage_count": 1,
+        "low_voltage_count": 3
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_10.db",
+      "db_index": 1,
+      "sequence_index": 0,
+      "run_id": 893,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 892,
+      "anomaly_type": "state_follow_mismatch",
+      "anomaly_voltage": 8.0,
+      "output_fields": {
+        "动力防盗允许READY标志位": 1,
+        "整车状态": 180,
+        "CC2电压值": 5.4
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [],
+        "state_follow_mismatch": [
+          "整车状态=180处于极大值(>= 170)时，充放电枪连接指示灯=0(应为1)",
+          "整车状态=180处于极大值(>= 170)时，快充唤醒信号=0(应为1)",
+          "整车状态=180处于极大值(>= 170)时，直流充电枪连接状态=1(应为2)"
+        ]
+      },
+      "context_voltage_sequence": [
+        7.7,
+        6.7,
+        5.5,
+        6.5,
+        8.0,
+        5.8,
+        7.5,
+        5.6,
+        5.1
+      ],
+      "context_voltage_stats": {
+        "mean": 6.488888888888889,
+        "std": 0.9993825254119494,
+        "min": 5.1,
+        "max": 8.0,
+        "range": 2.9000000000000004,
+        "median": 6.5,
+        "count": 9,
+        "wake_count": 8,
+        "sleep_count": 0,
+        "high_voltage_count": 2,
+        "low_voltage_count": 2
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_10.db",
+      "db_index": 1,
+      "sequence_index": 0,
+      "run_id": 940,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 939,
+      "anomaly_type": "state_follow_mismatch",
+      "anomaly_voltage": 12.0,
+      "output_fields": {
+        "动力防盗允许READY标志位": 1,
+        "整车状态": 186,
+        "CC2电压值": 12.0
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [],
+        "state_follow_mismatch": [
+          "整车状态=186处于极大值(>= 170)时，充放电枪连接指示灯=0(应为1)",
+          "整车状态=186处于极大值(>= 170)时，快充唤醒信号=0(应为1)",
+          "整车状态=186处于极大值(>= 170)时，直流充电枪连接状态=1(应为2)",
+          "整车状态=186处于极大值(>= 170)时，PDCU输出快充唤醒信号状态=1(应为2)"
+        ]
+      },
+      "context_voltage_sequence": [
+        4.8999999999999995,
+        5.2,
+        6.5,
+        6.6,
+        12.0,
+        7.0,
+        6.4,
+        7.1,
+        5.7
+      ],
+      "context_voltage_stats": {
+        "mean": 6.822222222222223,
+        "std": 1.9673884425681212,
+        "min": 4.8999999999999995,
+        "max": 12.0,
+        "range": 7.1000000000000005,
+        "median": 6.5,
+        "count": 9,
+        "wake_count": 8,
+        "sleep_count": 1,
+        "high_voltage_count": 1,
+        "low_voltage_count": 2
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_10.db",
+      "db_index": 1,
+      "sequence_index": 0,
+      "run_id": 941,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 940,
+      "anomaly_type": "state_follow_mismatch",
+      "anomaly_voltage": 7.0,
+      "output_fields": {
+        "动力防盗允许READY标志位": 1,
+        "整车状态": 186,
+        "CC2电压值": 12.0
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [],
+        "state_follow_mismatch": [
+          "整车状态=186处于极大值(>= 170)时，充放电枪连接指示灯=0(应为1)",
+          "整车状态=186处于极大值(>= 170)时，快充唤醒信号=0(应为1)",
+          "整车状态=186处于极大值(>= 170)时，直流充电枪连接状态=1(应为2)",
+          "整车状态=186处于极大值(>= 170)时，PDCU输出快充唤醒信号状态=1(应为2)"
+        ]
+      },
+      "context_voltage_sequence": [
+        4.8999999999999995,
+        5.2,
+        6.5,
+        6.6,
+        7.0,
+        6.4,
+        7.1,
+        5.7,
+        4.8999999999999995
+      ],
+      "context_voltage_stats": {
+        "mean": 6.033333333333334,
+        "std": 0.8246211251235323,
+        "min": 4.8999999999999995,
+        "max": 7.1,
+        "range": 2.2,
+        "median": 6.4,
+        "count": 9,
+        "wake_count": 9,
+        "sleep_count": 0,
+        "high_voltage_count": 0,
+        "low_voltage_count": 3
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_10.db",
+      "db_index": 1,
+      "sequence_index": 0,
+      "run_id": 947,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 946,
+      "anomaly_type": "state_follow_mismatch",
+      "anomaly_voltage": 5.7,
+      "output_fields": {
+        "动力防盗允许READY标志位": 1,
+        "整车状态": 186,
+        "CC2电压值": 12.0
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [],
+        "state_follow_mismatch": [
+          "整车状态=186处于极大值(>= 170)时，充放电枪连接指示灯=0(应为1)",
+          "整车状态=186处于极大值(>= 170)时，快充唤醒信号=0(应为1)",
+          "整车状态=186处于极大值(>= 170)时，直流充电枪连接状态=1(应为2)",
+          "整车状态=186处于极大值(>= 170)时，PDCU输出快充唤醒信号状态=1(应为2)"
+        ]
+      },
+      "context_voltage_sequence": [
+        6.6,
+        7.0,
+        6.4,
+        7.1,
+        5.7,
+        4.8999999999999995,
+        6.3,
+        5.3,
+        6.7
+      ],
+      "context_voltage_stats": {
+        "mean": 6.222222222222222,
+        "std": 0.7192245481192115,
+        "min": 4.8999999999999995,
+        "max": 7.1,
+        "range": 2.2,
+        "median": 6.4,
+        "count": 9,
+        "wake_count": 9,
+        "sleep_count": 0,
+        "high_voltage_count": 0,
+        "low_voltage_count": 2
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_10.db",
+      "db_index": 1,
+      "sequence_index": 0,
+      "run_id": 950,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 949,
+      "anomaly_type": "state_follow_mismatch",
+      "anomaly_voltage": 12.0,
+      "output_fields": {
+        "动力防盗允许READY标志位": 1,
+        "整车状态": 170,
+        "CC2电压值": 6.5
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [],
+        "state_follow_mismatch": [
+          "整车状态=170处于极大值(>= 170)时，直流充电枪连接状态=1(应为2)"
+        ]
+      },
+      "context_voltage_sequence": [
+        6.4,
+        7.1,
+        5.7,
+        4.8999999999999995,
+        12.0,
+        6.3,
+        5.3,
+        6.7,
+        5.7
+      ],
+      "context_voltage_stats": {
+        "mean": 6.677777777777779,
+        "std": 1.9915252545489281,
+        "min": 4.8999999999999995,
+        "max": 12.0,
+        "range": 7.1000000000000005,
+        "median": 6.3,
+        "count": 9,
+        "wake_count": 8,
+        "sleep_count": 1,
+        "high_voltage_count": 1,
+        "low_voltage_count": 2
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_10.db",
+      "db_index": 1,
+      "sequence_index": 0,
+      "run_id": 958,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 957,
+      "anomaly_type": "state_follow_mismatch",
+      "anomaly_voltage": 12.0,
+      "output_fields": {
+        "动力防盗允许READY标志位": 1,
+        "整车状态": 180,
+        "CC2电压值": 5.2
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [],
+        "state_follow_mismatch": [
+          "整车状态=180处于极大值(>= 170)时，充放电枪连接指示灯=0(应为1)",
+          "整车状态=180处于极大值(>= 170)时，快充唤醒信号=0(应为1)",
+          "整车状态=180处于极大值(>= 170)时，直流充电枪连接状态=1(应为2)"
+        ]
+      },
+      "context_voltage_sequence": [
+        6.3,
+        5.3,
+        6.7,
+        5.7,
+        12.0,
+        7.1,
+        6.7,
+        5.6,
+        6.8
+      ],
+      "context_voltage_stats": {
+        "mean": 6.911111111111111,
+        "std": 1.8911750870494628,
+        "min": 5.3,
+        "max": 12.0,
+        "range": 6.7,
+        "median": 6.7,
+        "count": 9,
+        "wake_count": 8,
+        "sleep_count": 1,
+        "high_voltage_count": 1,
+        "low_voltage_count": 1
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_10.db",
+      "db_index": 1,
+      "sequence_index": 0,
+      "run_id": 960,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 959,
+      "anomaly_type": "state_follow_mismatch",
+      "anomaly_voltage": 12.0,
+      "output_fields": {
+        "动力防盗允许READY标志位": 1,
+        "整车状态": 185,
+        "CC2电压值": 5.0
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [],
+        "state_follow_mismatch": [
+          "整车状态=185处于极大值(>= 170)时，快充唤醒信号=0(应为1)",
+          "整车状态=185处于极大值(>= 170)时，整车禁止READY标志位=0(应为1)",
+          "整车状态=185处于极大值(>= 170)时，直流充电枪连接状态=1(应为2)"
+        ]
+      },
+      "context_voltage_sequence": [
+        5.3,
+        6.7,
+        5.7,
+        7.1,
+        12.0,
+        6.7,
+        5.6,
+        6.8,
+        5.2
+      ],
+      "context_voltage_stats": {
+        "mean": 6.788888888888889,
+        "std": 1.9609773325475823,
+        "min": 5.2,
+        "max": 12.0,
+        "range": 6.8,
+        "median": 6.7,
+        "count": 9,
+        "wake_count": 8,
+        "sleep_count": 1,
+        "high_voltage_count": 1,
+        "low_voltage_count": 2
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_10.db",
+      "db_index": 1,
+      "sequence_index": 0,
+      "run_id": 972,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 971,
+      "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+      "anomaly_voltage": 12.0,
+      "output_fields": {
+        "动力防盗允许READY标志位": 0,
+        "整车状态": 170,
+        "CC2电压值": 12.0
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [
+          "整车状态=170(接近极大值170)，但READY标志位=0(应为1)"
+        ],
+        "state_follow_mismatch": [
+          "整车状态=170处于极大值(>= 170)时，充放电枪连接指示灯=0(应为1)",
+          "整车状态=170处于极大值(>= 170)时，动力防盗允许READY标志位=0(应为1)",
+          "整车状态=170处于极大值(>= 170)时，PDCU输出快充唤醒信号状态=1(应为2)"
+        ]
+      },
+      "context_voltage_sequence": [
+        6.8,
+        5.2,
+        7.5,
+        5.6,
+        12.0,
+        5.1,
+        6.3,
+        5.3,
+        6.8
+      ],
+      "context_voltage_stats": {
+        "mean": 6.733333333333333,
+        "std": 2.024296860091863,
+        "min": 5.1,
+        "max": 12.0,
+        "range": 6.9,
+        "median": 6.3,
+        "count": 9,
+        "wake_count": 8,
+        "sleep_count": 1,
+        "high_voltage_count": 1,
+        "low_voltage_count": 3
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_10.db",
+      "db_index": 1,
+      "sequence_index": 0,
+      "run_id": 973,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 972,
+      "anomaly_type": "state_follow_mismatch",
+      "anomaly_voltage": 5.1,
+      "output_fields": {
+        "动力防盗允许READY标志位": 1,
+        "整车状态": 186,
+        "CC2电压值": 12.0
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [],
+        "state_follow_mismatch": [
+          "整车状态=186处于极大值(>= 170)时，充放电枪连接指示灯=0(应为1)",
+          "整车状态=186处于极大值(>= 170)时，快充唤醒信号=0(应为1)",
+          "整车状态=186处于极大值(>= 170)时，直流充电枪连接状态=1(应为2)",
+          "整车状态=186处于极大值(>= 170)时，PDCU输出快充唤醒信号状态=1(应为2)"
+        ]
+      },
+      "context_voltage_sequence": [
+        6.8,
+        5.2,
+        7.5,
+        5.6,
+        5.1,
+        6.3,
+        5.3,
+        6.8,
+        6.1
+      ],
+      "context_voltage_stats": {
+        "mean": 6.077777777777778,
+        "std": 0.7941141504535839,
+        "min": 5.1,
+        "max": 7.5,
+        "range": 2.4000000000000004,
+        "median": 6.1,
+        "count": 9,
+        "wake_count": 9,
+        "sleep_count": 0,
+        "high_voltage_count": 0,
+        "low_voltage_count": 3
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_10.db",
+      "db_index": 1,
+      "sequence_index": 0,
+      "run_id": 989,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 988,
+      "anomaly_type": "state_follow_mismatch",
+      "anomaly_voltage": 6.8,
+      "output_fields": {
+        "动力防盗允许READY标志位": 0,
+        "整车状态": 12,
+        "CC2电压值": 12.0
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [],
+        "state_follow_mismatch": [
+          "整车状态=12处于极小值(<= 30)时，整车禁止READY标志位=1(应为0)"
+        ]
+      },
+      "context_voltage_sequence": [
+        6.1,
+        6.9,
+        6.2,
+        5.2,
+        6.8,
+        7.5,
+        5.6,
+        7.2,
+        6.0
+      ],
+      "context_voltage_stats": {
+        "mean": 6.388888888888889,
+        "std": 0.717161758360219,
+        "min": 5.2,
+        "max": 7.5,
+        "range": 2.3,
+        "median": 6.2,
+        "count": 9,
+        "wake_count": 9,
+        "sleep_count": 0,
+        "high_voltage_count": 0,
+        "low_voltage_count": 1
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_10.db",
+      "db_index": 1,
+      "sequence_index": 0,
+      "run_id": 990,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 989,
+      "anomaly_type": "state_follow_mismatch",
+      "anomaly_voltage": 12.0,
+      "output_fields": {
+        "动力防盗允许READY标志位": 1,
+        "整车状态": 180,
+        "CC2电压值": 5.6000000000000005
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [],
+        "state_follow_mismatch": [
+          "整车状态=180处于极大值(>= 170)时，充放电枪连接指示灯=0(应为1)",
+          "整车状态=180处于极大值(>= 170)时，快充唤醒信号=0(应为1)",
+          "整车状态=180处于极大值(>= 170)时，直流充电枪连接状态=1(应为2)"
+        ]
+      },
+      "context_voltage_sequence": [
+        6.9,
+        6.2,
+        5.2,
+        6.8,
+        12.0,
+        7.5,
+        5.6,
+        7.2,
+        6.0
+      ],
+      "context_voltage_stats": {
+        "mean": 7.044444444444444,
+        "std": 1.8903915591521192,
+        "min": 5.2,
+        "max": 12.0,
+        "range": 6.8,
+        "median": 6.8,
+        "count": 9,
+        "wake_count": 8,
+        "sleep_count": 1,
+        "high_voltage_count": 1,
+        "low_voltage_count": 1
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_10.db",
+      "db_index": 1,
+      "sequence_index": 0,
+      "run_id": 991,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 990,
+      "anomaly_type": "state_follow_mismatch",
+      "anomaly_voltage": 7.5,
+      "output_fields": {
+        "动力防盗允许READY标志位": 1,
+        "整车状态": 12,
+        "CC2电压值": 12.0
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [],
+        "state_follow_mismatch": [
+          "整车状态=12处于极小值(<= 30)时，动力防盗允许READY标志位=1(应为0)",
+          "整车状态=12处于极小值(<= 30)时，整车禁止READY标志位=1(应为0)",
+          "整车状态=12处于极小值(<= 30)时，直流充电枪连接状态=2(应为1)"
+        ]
+      },
+      "context_voltage_sequence": [
+        6.9,
+        6.2,
+        5.2,
+        6.8,
+        7.5,
+        5.6,
+        7.2,
+        6.0,
+        7.6
+      ],
+      "context_voltage_stats": {
+        "mean": 6.555555555555555,
+        "std": 0.8001543061061703,
+        "min": 5.2,
+        "max": 7.6,
+        "range": 2.3999999999999995,
+        "median": 6.8,
+        "count": 9,
+        "wake_count": 9,
+        "sleep_count": 0,
+        "high_voltage_count": 1,
+        "low_voltage_count": 1
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_11.db",
+      "db_index": 2,
+      "sequence_index": 0,
+      "run_id": 88,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 87,
+      "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+      "anomaly_voltage": 12.0,
+      "output_fields": {
+        "动力防盗允许READY标志位": 1,
+        "整车状态": 30,
+        "CC2电压值": 12.0
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [
+          "整车状态=30(接近极小值30)，但READY标志位=1(应为0)"
+        ],
+        "state_follow_mismatch": [
+          "整车状态=30处于极小值(<= 30)时，动力防盗允许READY标志位=1(应为0)"
+        ]
+      },
+      "context_voltage_sequence": [
+        7.0,
+        5.2,
+        7.4,
+        7.2,
+        12.0,
+        4.8999999999999995,
+        5.7,
+        7.6,
+        7.5
+      ],
+      "context_voltage_stats": {
+        "mean": 7.166666666666667,
+        "std": 1.9692073983655907,
+        "min": 4.8999999999999995,
+        "max": 12.0,
+        "range": 7.1000000000000005,
+        "median": 7.2,
+        "count": 9,
+        "wake_count": 8,
+        "sleep_count": 1,
+        "high_voltage_count": 2,
+        "low_voltage_count": 2
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_11.db",
+      "db_index": 2,
+      "sequence_index": 0,
+      "run_id": 624,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 623,
+      "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+      "anomaly_voltage": 12.0,
+      "output_fields": {
+        "动力防盗允许READY标志位": 1,
+        "整车状态": 30,
+        "CC2电压值": 12.0
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [
+          "整车状态=30(接近极小值30)，但READY标志位=1(应为0)"
+        ],
+        "state_follow_mismatch": [
+          "整车状态=30处于极小值(<= 30)时，动力防盗允许READY标志位=1(应为0)"
+        ]
+      },
+      "context_voltage_sequence": [
+        5.1,
+        7.6,
+        7.3,
+        6.8,
+        12.0,
+        7.1,
+        7.0,
+        5.6,
+        5.4
+      ],
+      "context_voltage_stats": {
+        "mean": 7.1,
+        "std": 1.9304576314093678,
+        "min": 5.1,
+        "max": 12.0,
+        "range": 6.9,
+        "median": 7.0,
+        "count": 9,
+        "wake_count": 8,
+        "sleep_count": 1,
+        "high_voltage_count": 2,
+        "low_voltage_count": 2
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_11.db",
+      "db_index": 2,
+      "sequence_index": 0,
+      "run_id": 846,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 845,
+      "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+      "anomaly_voltage": 12.0,
+      "output_fields": {
+        "动力防盗允许READY标志位": 1,
+        "整车状态": 30,
+        "CC2电压值": 12.0
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [
+          "整车状态=30(接近极小值30)，但READY标志位=1(应为0)"
+        ],
+        "state_follow_mismatch": [
+          "整车状态=30处于极小值(<= 30)时，动力防盗允许READY标志位=1(应为0)"
+        ]
+      },
+      "context_voltage_sequence": [
+        5.1,
+        6.1,
+        5.5,
+        7.2,
+        12.0,
+        4.8999999999999995,
+        5.3,
+        5.2,
+        6.0
+      ],
+      "context_voltage_stats": {
+        "mean": 6.366666666666666,
+        "std": 2.0986768318262925,
+        "min": 4.8999999999999995,
+        "max": 12.0,
+        "range": 7.1000000000000005,
+        "median": 5.5,
+        "count": 9,
+        "wake_count": 8,
+        "sleep_count": 1,
+        "high_voltage_count": 1,
+        "low_voltage_count": 5
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_15.db",
+      "db_index": 3,
+      "sequence_index": 0,
+      "run_id": 59,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 58,
+      "anomaly_type": "state_follow_mismatch",
+      "anomaly_voltage": 7.8,
+      "output_fields": {
+        "动力防盗允许READY标志位": 0,
+        "整车状态": 30,
+        "CC2电压值": 7.6000000000000005
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [],
+        "state_follow_mismatch": [
+          "整车状态=30处于极小值(<= 30)时，直流充电枪连接状态=2(应为1)"
+        ]
+      },
+      "context_voltage_sequence": [
+        5.2,
+        6.6,
+        6.2,
+        5.1,
+        7.8,
+        5.1,
+        6.4,
+        5.0,
+        7.1
+      ],
+      "context_voltage_stats": {
+        "mean": 6.055555555555555,
+        "std": 0.9569756888948656,
+        "min": 5.0,
+        "max": 7.8,
+        "range": 2.8,
+        "median": 6.2,
+        "count": 9,
+        "wake_count": 9,
+        "sleep_count": 0,
+        "high_voltage_count": 1,
+        "low_voltage_count": 4
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_15.db",
+      "db_index": 3,
+      "sequence_index": 0,
+      "run_id": 386,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 385,
+      "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+      "anomaly_voltage": 12.0,
+      "output_fields": {
+        "动力防盗允许READY标志位": 1,
+        "整车状态": 30,
+        "CC2电压值": 12.0
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [
+          "整车状态=30(接近极小值30)，但READY标志位=1(应为0)"
+        ],
+        "state_follow_mismatch": [
+          "整车状态=30处于极小值(<= 30)时，动力防盗允许READY标志位=1(应为0)"
+        ]
+      },
+      "context_voltage_sequence": [
+        5.3,
+        5.7,
+        5.2,
+        4.8999999999999995,
+        12.0,
+        5.2,
+        6.8,
+        6.0,
+        6.6
+      ],
+      "context_voltage_stats": {
+        "mean": 6.411111111111111,
+        "std": 2.0695917173547085,
+        "min": 4.8999999999999995,
+        "max": 12.0,
+        "range": 7.1000000000000005,
+        "median": 5.7,
+        "count": 9,
+        "wake_count": 8,
+        "sleep_count": 1,
+        "high_voltage_count": 1,
+        "low_voltage_count": 4
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_15.db",
+      "db_index": 3,
+      "sequence_index": 0,
+      "run_id": 445,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 444,
+      "anomaly_type": "state_follow_mismatch",
+      "anomaly_voltage": 7.8,
+      "output_fields": {
+        "动力防盗允许READY标志位": 0,
+        "整车状态": 30,
+        "CC2电压值": 7.6000000000000005
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [],
+        "state_follow_mismatch": [
+          "整车状态=30处于极小值(<= 30)时，直流充电枪连接状态=2(应为1)"
+        ]
+      },
+      "context_voltage_sequence": [
+        6.8,
+        5.8,
+        7.0,
+        7.7,
+        7.8,
+        5.1,
+        7.2,
+        5.3,
+        6.3
+      ],
+      "context_voltage_stats": {
+        "mean": 6.5555555555555545,
+        "std": 0.9346551486583596,
+        "min": 5.1,
+        "max": 7.8,
+        "range": 2.7,
+        "median": 6.8,
+        "count": 9,
+        "wake_count": 9,
+        "sleep_count": 0,
+        "high_voltage_count": 2,
+        "low_voltage_count": 2
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_15.db",
+      "db_index": 3,
+      "sequence_index": 0,
+      "run_id": 598,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 597,
+      "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+      "anomaly_voltage": 12.0,
+      "output_fields": {
+        "动力防盗允许READY标志位": 1,
+        "整车状态": 30,
+        "CC2电压值": 12.0
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [
+          "整车状态=30(接近极小值30)，但READY标志位=1(应为0)"
+        ],
+        "state_follow_mismatch": [
+          "整车状态=30处于极小值(<= 30)时，动力防盗允许READY标志位=1(应为0)"
+        ]
+      },
+      "context_voltage_sequence": [
+        6.2,
+        7.8,
+        7.0,
+        5.8,
+        12.0,
+        6.8,
+        5.4,
+        7.7,
+        7.0
+      ],
+      "context_voltage_stats": {
+        "mean": 7.300000000000001,
+        "std": 1.8257418583505536,
+        "min": 5.4,
+        "max": 12.0,
+        "range": 6.6,
+        "median": 7.0,
+        "count": 9,
+        "wake_count": 8,
+        "sleep_count": 1,
+        "high_voltage_count": 3,
+        "low_voltage_count": 1
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_15.db",
+      "db_index": 3,
+      "sequence_index": 0,
+      "run_id": 830,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 829,
+      "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+      "anomaly_voltage": 12.0,
+      "output_fields": {
+        "动力防盗允许READY标志位": 1,
+        "整车状态": 30,
+        "CC2电压值": 12.0
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "ready_flag_mismatch+state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [
+          "整车状态=30(接近极小值30)，但READY标志位=1(应为0)"
+        ],
+        "state_follow_mismatch": [
+          "整车状态=30处于极小值(<= 30)时，动力防盗允许READY标志位=1(应为0)"
+        ]
+      },
+      "context_voltage_sequence": [
+        7.0,
+        7.4,
+        5.7,
+        5.7,
+        12.0,
+        5.2,
+        6.4,
+        5.9,
+        5.6
+      ],
+      "context_voltage_stats": {
+        "mean": 6.766666666666667,
+        "std": 1.9669491322575907,
+        "min": 5.2,
+        "max": 12.0,
+        "range": 6.8,
+        "median": 5.9,
+        "count": 9,
+        "wake_count": 8,
+        "sleep_count": 1,
+        "high_voltage_count": 1,
+        "low_voltage_count": 1
+      },
+      "context_length": 9
+    },
+    {
+      "db_name": "db_15.db",
+      "db_index": 3,
+      "sequence_index": 0,
+      "run_id": 853,
+      "round_id": 1,
+      "anomaly_index_in_sequence": 852,
+      "anomaly_type": "state_follow_mismatch",
+      "anomaly_voltage": 7.8,
+      "output_fields": {
+        "动力防盗允许READY标志位": 1,
+        "整车状态": 170,
+        "CC2电压值": 7.6000000000000005
+      },
+      "anomaly_info": {
+        "is_abnormal": true,
+        "anomaly_type": "state_follow_mismatch",
+        "matched_error_fields": [],
+        "matched_stuck_fields": [],
+        "ready_flag_mismatch": [],
+        "state_follow_mismatch": [
+          "整车状态=170处于极大值(>= 170)时，PDCU输出快充唤醒信号状态=1(应为2)"
+        ]
+      },
+      "context_voltage_sequence": [
+        5.4,
+        4.8999999999999995,
+        6.3,
+        5.1,
+        7.8,
+        6.9,
+        5.8,
+        5.7,
+        7.5
+      ],
+      "context_voltage_stats": {
+        "mean": 6.155555555555555,
+        "std": 0.982187028027092,
+        "min": 4.8999999999999995,
+        "max": 7.8,
+        "range": 2.9000000000000004,
+        "median": 5.8,
+        "count": 9,
+        "wake_count": 9,
+        "sleep_count": 0,
+        "high_voltage_count": 1,
+        "low_voltage_count": 3
+      },
+      "context_length": 9
+    }
+  ],
+  "anomalies_by_type": {
+    "ready_flag_mismatch+state_follow_mismatch": {
+      "count": 11,
+      "summary_stats": {
+        "anomaly_voltage_mean": 12.0,
+        "anomaly_voltage_std": 0.0,
+        "context_voltage_mean": 6.891919191919192,
+        "context_voltage_std": 1.9717932060841528
+      }
+    },
+    "state_follow_mismatch": {
+      "count": 19,
+      "summary_stats": {
+        "anomaly_voltage_mean": 8.70526315789474,
+        "anomaly_voltage_std": 2.632883886981511,
+        "context_voltage_mean": 6.409941520467837,
+        "context_voltage_std": 1.2409184103385613
+      }
+    }
+  }
+}

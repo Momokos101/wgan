@@ -19,16 +19,23 @@ except ImportError:
 class VcuDataProcessor:
     """VCU 数据处理器"""
     
-    def __init__(self, db_path: str, batch_size: int = BATCH_SIZE, split_ratio: float = SPLIT_RATIO):
+    def __init__(self, db_path, batch_size: int = BATCH_SIZE, split_ratio: float = SPLIT_RATIO):
         """
         初始化数据处理器
         
         Args:
-            db_path: 数据库路径
+            db_path: 数据库路径（可以是单个路径字符串，或路径列表）
             batch_size: 批次大小
             split_ratio: 训练集比例
         """
-        self.db_path = db_path
+        # 支持单个路径或路径列表
+        if isinstance(db_path, str):
+            self.db_paths = [db_path]
+        elif isinstance(db_path, list):
+            self.db_paths = db_path
+        else:
+            raise ValueError(f"db_path 必须是字符串或列表，当前类型: {type(db_path)}")
+        
         self.batch_size = batch_size
         self.split_ratio = split_ratio
         
@@ -378,7 +385,7 @@ class VcuDataProcessor:
         处理数据，准备训练数据
         
         Args:
-            limit: 限制加载的数据量
+            limit: 限制加载的数据量（对每个数据库分别限制，None表示不限制）
             
         Returns:
             (train_data, test_data, max_sequence_length)
@@ -386,11 +393,34 @@ class VcuDataProcessor:
             - test_data: 测试数据
             - max_sequence_length: 最大序列长度
         """
-        # 加载数据
-        with VcuDataLoader(self.db_path) as loader:
-            sequences = loader.load_sequences_by_round()
-            if limit:
-                sequences = sequences[:limit]
+        # 从多个数据库加载数据并合并
+        all_sequences = []
+        total_loaded = 0
+        
+        for i, db_path in enumerate(self.db_paths):
+            print(f"正在处理数据库 {i+1}/{len(self.db_paths)}: {db_path}")
+            try:
+                with VcuDataLoader(db_path) as loader:
+                    sequences = loader.load_sequences_by_round()
+                    if limit:
+                        # 如果设置了limit，对每个数据库平均分配
+                        per_db_limit = limit // len(self.db_paths) if len(self.db_paths) > 1 else limit
+                        if total_loaded < limit:
+                            remaining = limit - total_loaded
+                            sequences = sequences[:min(per_db_limit, remaining)]
+                            total_loaded += len(sequences)
+                        else:
+                            sequences = []
+                    
+                    all_sequences.extend(sequences)
+                    print(f"  从 {db_path} 加载了 {len(sequences)} 个序列")
+            except Exception as e:
+                print(f"  警告: 处理数据库 {db_path} 时出错: {e}")
+                continue
+        
+        sequences = all_sequences
+        if limit and len(sequences) > limit:
+            sequences = sequences[:limit]
         
         # 构建序列对
         voltage_seqs, condition_vecs, abnormal_labels = self.build_sequence_pairs(sequences)
@@ -455,10 +485,11 @@ class VcuDataProcessor:
         
         Args:
             output_dir: 输出目录
-            limit: 限制加载的数据量
+            limit: 限制加载的数据量（对每个数据库分别限制）
         """
         os.makedirs(output_dir, exist_ok=True)
         
+        print(f"开始处理数据，共 {len(self.db_paths)} 个数据库文件...")
         train_data, test_data, max_seq_len = self.process_data(limit)
         
         # 转换为 numpy 数组保存
@@ -511,20 +542,35 @@ class VcuDataProcessor:
         print(f"最大序列长度: {max_seq_len}")
 
 
-def load_vcu_data(precision: str = '2', db_path: str = 'db.db', 
+def load_vcu_data(precision: str = '2', db_path=None, 
                   output_dir: str = 'data/vcu', limit: Optional[int] = None):
     """
     加载 VCU 数据
     
     Args:
         precision: 精度（保留用于兼容性）
-        db_path: 数据库路径
+        db_path: 数据库路径（可以是单个路径字符串，或路径列表，None表示从配置读取）
         output_dir: 输出目录
         limit: 限制加载的数据量
         
     Returns:
         (train_data, test_data, max_sequence_length)
     """
+    # 如果未指定 db_path，从配置读取
+    if db_path is None:
+        try:
+            try:
+                from configs.config_vcu import DB_PATHS, DB_PATH
+            except ImportError:
+                from config_vcu import DB_PATHS, DB_PATH
+            # 优先使用 DB_PATHS，如果为 None 则使用 DB_PATH
+            if DB_PATHS is not None:
+                db_path = DB_PATHS
+            else:
+                db_path = DB_PATH
+        except ImportError:
+            db_path = 'database/db.db'  # 默认值
+    
     processor = VcuDataProcessor(db_path)
     
     # 如果预处理文件不存在，先处理数据
