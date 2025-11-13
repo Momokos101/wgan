@@ -150,7 +150,7 @@ class NetModel(tf.keras.Model):
             batch_size = tf.shape(c_var_tensor)[0]
             z_var = tf.random.normal(shape=(batch_size, self.z_dim))
         
-        generate_var = self.generator_wi_condition([c_var, z_var])
+        generate_var = self.generator_wi_condition([c_var_tensor, z_var])
         return generate_var
 
     def build_generator_wca(self):
@@ -232,5 +232,11 @@ class NetModel(tf.keras.Model):
         '''
         with condition
         '''
-        discriminate_var = self.discriminator_wi_condition(in_var)
+        # 确保输入是tensor列表
+        if isinstance(in_var, list):
+            in_var_tensors = [tf.convert_to_tensor(v) if not isinstance(v, tf.Tensor) else v for v in in_var]
+        else:
+            in_var_tensors = tf.convert_to_tensor(in_var) if not isinstance(in_var, tf.Tensor) else in_var
+        
+        discriminate_var = self.discriminator_wi_condition(in_var_tensors)
         return discriminate_var
