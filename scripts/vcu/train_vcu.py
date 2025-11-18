@@ -1,127 +1,126 @@
-"""
-VCU 唤醒-休眠场景 GAN 训练脚本
-"""
-import os
-import sys
-import numpy as np
-import tensorflow as tf
-import sys
-import os
-# 添加项目根目录到路径
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+# scripts/vcu/train_vcu.py
+# VCU 唤醒-休眠场景 WGAN-GP 训练脚本
 
+import os
+import sys
+import argparse
+import time
+
+# ========== 1. 添加项目根目录到 sys.path ==========
+THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.abspath(os.path.join(THIS_DIR, "../.."))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+
+# ========== 2. 导入全部配置 ==========
+from configs.config_vcu import (
+    # base
+    FLAG, PROGRAM, OUTPUT_DIR, LOG_DIR, MODEL_PATH,
+    PRECISION, C_DIM, MODEL_TYPE,
+
+    # data
+    DB_PATH, CONTEXT_BEFORE, CONTEXT_AFTER, SPLIT_RATIO,
+
+    # model
+    Z_DIM, EMBEDDING_DIM, G_DIM, D_DIM, OPT_TYPE,
+
+    # train
+    MAX_EPOCH, BATCH_SIZE, STAGEI_G_LR, STAGEI_D_LR,
+    TRAIN_RATIO_I, DECAY, DECAY_EPOCHS
+)
+
+# ========== 3. 导入数据加载与 GAN 组件 ==========
 from sequence.vcu_data_process import load_vcu_data
-from nn.wd_trainer import WassersteinTrainer
 from nn.scale_model import ScaleModel
-from configs.config_vcu import *
+from nn.wd_trainer import WassersteinTrainer
 from nn.optimizer import Optimizer
 
 
-class VcuWassersteinTrainer(WassersteinTrainer):
-    """适配 VCU 数据格式的训练器"""
-    
-    def train(self):
-        """重写训练循环以适配 VCU 数据格式"""
-        cnt = 0
-        for epoch in range(self.max_epoch):
-            for voltage_seq, condition, abnormal_label in self.train_data:
-                cnt += 1
-                
-                # 生成错误的条件（用于判别器训练）
-                # 可以随机生成或使用异常条件
-                wrong_condition = tf.random.uniform(
-                    shape=condition.shape,
-                    minval=0.0,
-                    maxval=1.0
-                )
-                
-                if cnt % self.train_ratio_I != 0:
-                    g_log_vars = self.train_step_g(voltage_seq, condition)
-                else:
-                    d_log_vars = self.train_step_d(voltage_seq, condition, wrong_condition)
-            
-            self.log.write('Epoch: {}\n'.format(epoch + 1))
-            for k, v in g_log_vars:
-                g_loss_fake = v
-                self.log.write('{}: {} '.format(k, v))
-            self.log.write('\n')
-            for k, v in d_log_vars:
-                self.log.write('{}: {} '.format(k, v))
-            self.log.write('\n')
-            self.log.flush()
-
-            # 学习率更新
-            if (epoch + 1) % self.decay_epochs == 0:
-                self.optimizer.lr_decay('I')
-                
-        self.save_model()
+# ========== 工具 ==========
+def ensure_dir(path):
+    if not os.path.exists(path):
+        os.makedirs(path, exist_ok=True)
 
 
-def main():
+def count_batches(dataset):
+    return sum(1 for _ in dataset)
+
+
+# ========== 4. 主训练流程 ==========
+def main(args):
     print("=" * 60)
-    print("VCU 唤醒-休眠场景 GAN 训练")
+    print("VCU 唤醒-休眠场景 WGAN-GP 训练脚本")
     print("=" * 60)
-    
-    # 加载数据
-    print("\n[1/4] 加载数据...")
+
+    # ----- 4.1 加载数据 -----
+    print("\n[1/4] 加载数据（含数据库 → 序列抽取 → npy 缓存）...")
     train_data, test_data, max_seq_len = load_vcu_data(
         precision=PRECISION,
         db_path=DB_PATH,
-        output_dir=OUTPUT_DIR
+        output_dir=OUTPUT_DIR,
+        limit=args.limit
     )
-    
-    # 更新全局配置中的最大序列长度
-    import config_vcu
-    config_vcu.MAX_SEQUENCE_LENGTH = max_seq_len
-    
-    print(f"数据加载完毕！")
-    print(f"  训练集批次: {len(list(train_data))}")
-    print(f"  测试集批次: {len(list(test_data))}")
-    print(f"  最大序列长度: {max_seq_len}")
-    
-    # 显示配置信息
-    print("\n[2/4] 配置信息:")
-    print(f"  FLAG: {FLAG}")
-    print(f"  PROGRAM: {PROGRAM}")
-    print(f"  MAX_EPOCH: {MAX_EPOCH}")
-    print(f"  G_LR: {STAGEI_G_LR}")
-    print(f"  D_LR: {STAGEI_D_LR}")
-    print(f"  BATCH_SIZE: {BATCH_SIZE}")
-    print(f"  C_DIM: {C_DIM}")
-    print(f"  Z_DIM: {Z_DIM}")
-    
-    # 确认开始训练
-    print("\n请确认以上信息是否正确，输入 Y 继续，其他键退出:")
-    try:
-        s = input()
-    except EOFError:
-        # 非交互式环境，自动确认
-        print("非交互式环境，自动确认继续...")
-        s = 'Y'
-    if s != 'Y':
-        print("训练已取消")
-        exit()
-    
-    # 构建模型
-    print("\n[3/4] 构建模型...")
-    model = ScaleModel(max_seq_len)
-    model.build()
-    print("模型构建完成！")
-    
-    # 初始化优化器
+
+    print(f"训练集批次数: {count_batches(train_data)}")
+    print(f"测试集批次数: {count_batches(test_data)}")
+    print(f"最大序列长度: {max_seq_len}")
+
+    # ----- 4.2 打印配置 -----
+    print("\n[2/4] GAN 配置:")
+    print(f"FLAG: {FLAG}")
+    print(f"MODEL_TYPE: {MODEL_TYPE}")
+    print(f"BATCH_SIZE: {BATCH_SIZE}")
+    print(f"C_DIM: {C_DIM}")
+    print(f"Z_DIM: {Z_DIM}")
+    print(f"G_DIM / D_DIM: {G_DIM} / {D_DIM}")
+    print(f"学习率: G={STAGEI_G_LR}, D={STAGEI_D_LR}")
+    print(f"训练轮数: {MAX_EPOCH}")
+    print(f"模型保存目录: {MODEL_PATH}")
+
+    if not args.no_confirm:
+        print("\n确认开始训练？Y开始，其他键退出：")
+        try:
+            s = input().strip()
+        except EOFError:
+            s = "Y"
+        if s != "Y":
+            print("训练已取消")
+            return
+
+    # ----- 4.3 构建模型 -----
+    print("\n[3/4] 构建 ScaleModel...")
+    scale_model = ScaleModel(seed_length=max_seq_len)
+    scale_model.build()
+    print("生成器:", scale_model.generator)
+    print("判别器:", scale_model.discriminator)
+
+    # ----- 4.4 初始化优化器 -----
     print("\n[4/4] 初始化优化器...")
     optimizer = Optimizer()
     optimizer.init_opt()
-    print("优化器初始化完成！")
-    
-    # 创建训练器
+    print("优化器加载完成。")
+
+    # ----- 创建训练器并开始训练 -----
     print("\n开始训练...")
-    trainer = VcuWassersteinTrainer(train_data, model, optimizer)
+    trainer = WassersteinTrainer(
+        train_data=train_data,
+        scale_model=scale_model,
+        optimizer=optimizer,
+        lambda_gp=10.0,       # 或从配置导入
+    )
+
+    t0 = time.time()
     trainer.train()
-    
+    t1 = time.time()
+
     print("\n训练完成！")
+    print(f"总耗时: {t1 - t0:.1f} 秒")
+    print(f"模型已保存至: {MODEL_PATH}")
 
 
-if __name__ == '__main__':
-    main()
-
+# ========== 脚本入口 ==========
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--limit", type=int, default=None)
+    parser.add_argument("--no-confirm", action="store_true")
+    main(parser.parse_args())

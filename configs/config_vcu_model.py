@@ -11,8 +11,8 @@ Z_DIM = 128
 EMBEDDING_DIM = 128
 
 # 生成器和判别器维度
-G_DIM = 32
-D_DIM = 4
+G_DIM = 64
+D_DIM = 32
 
 # 优化器类型
 OPT_TYPE = 'adam'

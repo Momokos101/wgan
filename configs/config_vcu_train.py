@@ -7,13 +7,15 @@ VCU 训练相关配置
 from .config_vcu_base import *
 
 # 训练参数
-MAX_EPOCH = 80
-STAGEI_G_LR = 1e-4
+MAX_EPOCH = 100
+STAGEI_G_LR = 1e-4 
 STAGEI_D_LR = 1e-4  # 降低判别器学习率以避免数值不稳定
+OPT_TYPE = 'adam'
+CHECKPOINT_DIR = "checkpoints"
 
 # 批次大小
 SHUFFLE = True
-BATCH_SIZE = 32  # VCU 数据可能较少，使用较小的批次
+BATCH_SIZE = 16 # VCU 数据可能较少，使用较小的批次
 
 # 训练比例
 TRAIN_RATIO_I = 2
@@ -25,6 +27,6 @@ STAGEII_GII_LR = 1e-4
 STAGEII_DII_LR = 7e-5
 
 # 学习率衰减
-DECAY = 0.90
+DECAY = 0.50
 DECAY_EPOCHS = 10
 

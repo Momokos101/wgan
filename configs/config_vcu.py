@@ -13,8 +13,8 @@ from .config_vcu_base import (
 
 # 导入数据配置（后端负责人负责）
 from .config_vcu_data import (
-    DB_PATH,
     DB_PATHS,
+    DB_PATH,
     VEHICLE_STATUS_MIN,
     VEHICLE_STATUS_MAX,
     VEHICLE_STATUS_TOLERANCE,
