@@ -54,9 +54,12 @@ def main(args):
 
     # ----- 4.1 加载数据 -----
     print("\n[1/4] 加载数据（含数据库 → 序列抽取 → npy 缓存）...")
+    # 支持多数据库：优先使用DB_PATHS，如果为None则使用DB_PATH
+    from configs.config_vcu import DB_PATHS
+    db_path_to_use = DB_PATHS if DB_PATHS is not None else DB_PATH
     train_data, test_data, max_seq_len = load_vcu_data(
         precision=PRECISION,
-        db_path=DB_PATH,
+        db_path=db_path_to_use,
         output_dir=OUTPUT_DIR,
         limit=args.limit
     )
